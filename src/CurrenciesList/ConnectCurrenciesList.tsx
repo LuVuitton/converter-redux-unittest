@@ -10,7 +10,6 @@ const changeAnotherValueAC = (name:string, numValue:number)=> {
         payload:{
             numValue,
             name,
-
         }
     }
 }

@@ -20,7 +20,9 @@ const updateUAHValueAC = (inputValue:number)=> {
 const mapStateToProps=(state:StoreType)=>{
     return{
         inputValue: state.inputsState.UAHCurrentValue.value,
-        title: state.inputsState.UAHCurrentValue.title
+        title: state.inputsState.UAHCurrentValue.title,
+        warningState: state.inputsState.warnings.errorValue.value,
+        warningText: state.inputsState.warnings.errorValue.textWarning
     }
 }
 const mapDispatchToProps=(dispatch:(action:ActionType)=>void)=>{

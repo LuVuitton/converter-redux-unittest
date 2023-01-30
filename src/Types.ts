@@ -3,6 +3,9 @@ export type ReInputPropsType = {
     inputValue: number
     onChangeHandler: (inputValue: number) => void
     title: string
+    warningState: boolean
+    warningText: string
+
 }
 export type CurrenciesType = {
     value: number,
@@ -12,6 +15,16 @@ export type InitialStateType = {
     UAHCurrentValue: CurrenciesType
     AnotherCurrentValue: CurrenciesType
     CurrentPrice: number
+    warnings:{
+        errorValue: {
+            value:boolean
+            textWarning: string
+        }
+        notSelected: {
+            value:boolean
+            textWarning: string
+        }
+    }
 
 }
 

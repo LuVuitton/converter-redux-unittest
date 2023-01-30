@@ -9,7 +9,9 @@ import {ActionType, StoreType} from "../Types";
 const mapStateToProps=(state:StoreType)=>{
     return{
         inputValue: state.inputsState.AnotherCurrentValue.value,
-        title:state.inputsState.AnotherCurrentValue.title
+        title:state.inputsState.AnotherCurrentValue.title,
+        warningState: state.inputsState.warnings.notSelected.value,
+        warningText: state.inputsState.warnings.notSelected.textWarning
     }
 }
 const mapDispatchToProps=(dispatch:(action:ActionType)=>void)=>{
