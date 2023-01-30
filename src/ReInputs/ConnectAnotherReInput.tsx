@@ -1,21 +1,23 @@
 import React from "react";
 import {ReInput} from "./ReInput";
 import {connect} from 'react-redux';
-import {StoreType} from "../Types";
-import {ActionType} from "../Redux/Reducers/CurrenciesReducer";
+import {ActionType, StoreType} from "../Types";
+
+
 
 
 const mapStateToProps=(state:StoreType)=>{
     return{
-        inputValue: state.mainState.DollarCurrentValue
+        inputValue: state.inputsState.AnotherCurrentValue.value,
+        title:state.inputsState.AnotherCurrentValue.title
     }
 }
 const mapDispatchToProps=(dispatch:(action:ActionType)=>void)=>{
     return{
-        onChangeHandler: ()=>{
-            dispatch({type:'dollar'})
+        onChangeHandler: (inputValue:number)=>{
+            dispatch({type:'altro dengi', payload: inputValue})
         }
     }
 }
 
-export const ConnectDollarReInput = connect(mapStateToProps,mapDispatchToProps)(ReInput)
+export const ConnectAnotherReInput = connect(mapStateToProps,mapDispatchToProps)(ReInput)

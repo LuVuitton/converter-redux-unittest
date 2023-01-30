@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import sApp from './App.module.css';
+import {ConnectUAHReInput} from "./ReInputs/ConnectUAHReInput";
+import {ConnectAnotherReInput} from "./ReInputs/ConnectAnotherReInput";
+import {ConnectCurrenciesList} from "./CurrenciesList/ConnectCurrenciesList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className={sApp.wrapper}>
+
+            <ConnectCurrenciesList/>
+
+
+            <div className={sApp.inpWrapper}>
+                <ConnectUAHReInput/>
+                <ConnectAnotherReInput/>
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
+
+
+
+

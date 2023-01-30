@@ -1,26 +1,28 @@
 import React from "react";
-import {connect} from 'react-redux';
-import {StoreType} from "./Types";
-import {CurrenciesItemType} from "./Redux/TestCurrenciesState";
+import {CurrenciesListPropsType} from "../Types";
+import sList from './CurrenciesList.module.css'
 
-export type CurrenciesListPropsType = {
-  arr:CurrenciesItemType[]
+
+export const CurrenciesList = (props: CurrenciesListPropsType) => {
+
+
+    return <div className={sList.wrapper} >
+
+        {props.arr.map((e, i) => {           //вынести жск в отдельный компонент, что бы проще читать
+
+            return (
+                <>
+                    <div
+                        onClick={()=>props.onCLickHandler(e.txt, e.rate)}
+                        className={sList.name}>{e.txt}
+                    </div>
+                    <div>{e.rate}</div>
+                </>
+            )
+
+        })}
+    </div>
+
 }
 
-export const CurrenciesList = (props:CurrenciesListPropsType) => {
-  {props.arr.map(e=> <div>{e.cc} {e.}</div>)}
-  )
-}
 
-
-const mapStateToProps = (state:StoreType) => {
-  return {
-    arr: state.CurrenciesList
-  }
-}
-const mapDispatchToProps = (dispatch:()=>void) => {
-  return {
-  }
-}
-
-const connectCurrenciesList = connect(mapStateToProps,mapDispatchToProps )(CurrenciesList)

@@ -1,26 +1,33 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {StoreType} from "../Types";
-import {CurrenciesItemType} from "../Redux/TestCurrenciesState";
+import {ActionType, StoreType} from "../Types";
+import {CurrenciesList} from "./CurrenciesList";
 
-export type CurrenciesListPropsType = {
-    arr: CurrenciesItemType[]
+
+const changeAnotherValueAC = (name:string, numValue:number)=> {
+    return {
+        type: 'CHANGE-ANOTHER-VALUE',
+        payload:{
+            numValue,
+            name,
+
+        }
+    }
 }
-
-export const CurrenciesList = (props: CurrenciesListPropsType) => {
-
-    return <div>{props.arr.map(e => <div>{e.txt} {e.rate}</div>)}</div>
-
-}
-
 
 const mapStateToProps = (state: StoreType) => {
     return {
         arr: state.CurrenciesList
     }
 }
-const mapDispatchToProps = (dispatch: () => void) => {
-    return {}
+const mapDispatchToProps = (dispatch:(action:ActionType)=>void) => {
+    return {
+        onCLickHandler: (name:string, numValue:number)=> {
+            dispatch(changeAnotherValueAC(name, numValue))
+        }
+    }
 }
 
-const connectCurrenciesList = connect(mapStateToProps, mapDispatchToProps)(CurrenciesList)
+
+
+export const ConnectCurrenciesList = connect(mapStateToProps, mapDispatchToProps)(CurrenciesList)
