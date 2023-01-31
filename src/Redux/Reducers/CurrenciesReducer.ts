@@ -7,11 +7,13 @@ import {ActionType, InitialStateType} from "../../Types";
 const initialState: InitialStateType = {
     UAHCurrentValue: {
         value: 0,
-        title: 'UAH'
+        title: 'UAH',
+        fullName:''
     },
     AnotherCurrentValue: {
         value: 0,
-        title: 'choose currency'
+        title: 'choose currency',
+        fullName: ''
     },
     CurrentPrice: 0,
     warnings:{
@@ -23,14 +25,20 @@ const initialState: InitialStateType = {
             value:false,
             textWarning: 'choose currency'
         }
-    }
+    },
+    favorites:['initialValue'] //как типизировать без обязательного элемента со строкой в инициализационном стейте
 }
 
+export type CurrenciesReducerType = (state:InitialStateType, action: ActionType)=>InitialStateType
 
-export const CurrenciesReducer = (state = initialState, action: ActionType) => {
+
+export const CurrenciesReducer:CurrenciesReducerType = (state = initialState, action) => {
 
     switch (action.type) {
-
+        case 'ADD-TO-FAVORITES':
+            return {
+                ...state, favorites:[...state.favorites, state.AnotherCurrentValue.title]
+            }
         case 'CHANGE-ANOTHER-VALUE':
             return {
                 ...state,
@@ -38,7 +46,8 @@ export const CurrenciesReducer = (state = initialState, action: ActionType) => {
                 AnotherCurrentValue: {
                     ...state.AnotherCurrentValue,
                     title: action.payload.name,
-                    value: state.UAHCurrentValue.value / action.payload.numValue
+                    value: state.UAHCurrentValue.value / action.payload.numValue,
+                    fullName: action.payload.fullName
                 },
                 warnings:{...state.warnings,                                        //убираем ошибки
                     notSelected:{...state.warnings.notSelected, value:false},
@@ -48,12 +57,10 @@ export const CurrenciesReducer = (state = initialState, action: ActionType) => {
         case 'UPDATE-UAH-VALUE':
 
             if (state.AnotherCurrentValue.title === 'choose currency'){
-                // alert('choose')
                 return {...state, warnings:{...state.warnings, notSelected:{...state.warnings.notSelected, value:true}}}
             }
             if (action.payload.inputValue < 0) {
-                // alert('Value < 0')
-                return {...state,warnings:{...state.warnings, errorValue:{...state.warnings.errorValue,value:true}}}
+                return {...state,warnings:{...state.warnings, errorValue:{...state.warnings.errorValue, value:true}}}
             }
             return {
                 ...state,
@@ -69,7 +76,8 @@ export const CurrenciesReducer = (state = initialState, action: ActionType) => {
                     errorValue:{...state.warnings.errorValue,value:false}
                 }
             }
-        default:return state
+        default: return state //при default: throw new Error('invalid state') сразу падает ошибка
+
     }
 
 

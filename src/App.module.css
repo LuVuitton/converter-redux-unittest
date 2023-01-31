@@ -2,11 +2,16 @@
     width: 450px;
     height: 300px;
     margin: 150px auto 0 auto;
-    text-align: center;
 }
 .inpWrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    text-align: right;
     margin-bottom: 50px;
+}
+.btnWrapper button{
+    width: 100px;
+    background-color: lightslategrey;
+}
+.btnWrapper button:hover{
+    background-color: rgba(119, 136, 153, 0.7);
 }

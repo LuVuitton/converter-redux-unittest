@@ -1,7 +1,7 @@
 import {testCurrenciesState} from "../TestCurrenciesState";
-import {ActionType} from "../../Types";
+import {ActionType, CurrenciesItemType} from "../../Types";
 
-export const ListReducer = (state=testCurrenciesState, action:ActionType) => {
+export const ListReducer = (state=testCurrenciesState, action:ActionType):CurrenciesItemType[] => {
 
     return [...state]
 }

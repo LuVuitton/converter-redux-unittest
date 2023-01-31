@@ -10,6 +10,7 @@ export type ReInputPropsType = {
 export type CurrenciesType = {
     value: number,
     title: string
+    fullName: string
 }
 export type InitialStateType = {
     UAHCurrentValue: CurrenciesType
@@ -25,7 +26,7 @@ export type InitialStateType = {
             textWarning: string
         }
     }
-
+    favorites:string[]
 }
 
 export  type StoreType = {
@@ -41,7 +42,9 @@ export type ActionType = {
 
 export type CurrenciesListPropsType = {
     arr: CurrenciesItemType[]
-    onCLickHandler: (name:string, numValue:number)=>void
+    onCLickHandler: (name:string, numValue:number, fullName:string)=>void
+    favorites: string[]
+    title: string
 }
 export type CurrenciesItemType = {
     "r030": number

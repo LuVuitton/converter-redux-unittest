@@ -17,7 +17,7 @@ const mapStateToProps=(state:StoreType)=>{
 const mapDispatchToProps=(dispatch:(action:ActionType)=>void)=>{
     return{
         onChangeHandler: (inputValue:number)=>{
-            dispatch({type:'altro dengi', payload: inputValue})
+            console.log('второй инпут должен менять первый')
         }
     }
 }
