@@ -3,5 +3,9 @@ import {ActionType, CurrenciesItemType} from "../../Types";
 
 export const ListReducer = (state=testCurrenciesState, action:ActionType):CurrenciesItemType[] => {
 
-    return [...state]
+switch (action.type){
+    case 'SET-CURRENCIES':
+    return action.payload.receivedCurr
+}
+    return state
 }

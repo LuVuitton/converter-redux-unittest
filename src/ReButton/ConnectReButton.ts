@@ -2,6 +2,8 @@ import {ActionType, StoreType} from "../Types";
 import {connect} from "react-redux";
 import {ReButton} from "./ReButton";
 
+
+
 const addToFavoriteAC =()=> {
     return {
         type: 'ADD-TO-FAVORITES'

@@ -4,6 +4,21 @@
     text-align: right;
     margin-bottom: 50px;
     width: 350px;
+    height: 300px;
+    overflow: auto scroll;
+    padding-right: 15px;
+    }
+
+.wrapper::-webkit-scrollbar {
+    width: 7px;
+    background-color: #f9f9fd;
+}
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(34, 60, 80, 0.51);
+}
+.wrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
 }
 
 .name:hover {

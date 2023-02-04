@@ -14,12 +14,13 @@ function App() {
 
             <div className={sApp.inpWrapper}>
                 <ConnectUAHReInput/>
-
                 <ConnectAnotherReInput/>
             </div>
+
+
             <div className={sApp.btnWrapper}>
-                    <ConnectReButton/>
-                </div>
+                <ConnectReButton/>
+            </div>
 
 
         </div>

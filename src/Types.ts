@@ -45,6 +45,7 @@ export type CurrenciesListPropsType = {
     onCLickHandler: (name:string, numValue:number, fullName:string)=>void
     favorites: string[]
     title: string
+    setCurrencies: (receivedCurr:any)=> void
 }
 export type CurrenciesItemType = {
     "r030": number
