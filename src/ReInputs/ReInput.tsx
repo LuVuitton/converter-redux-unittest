@@ -10,7 +10,11 @@ export const ReInput = (props: ReInputPropsType) => {
     return (
         <div>
             <div>{props.title}</div>
-            <input type={'number'} value={props.inputValue} onChange={onChangeHandler}></input>
+            <input
+                type={'number'}
+                value={props.inputValue}
+                onChange={onChangeHandler}
+            />
             {props.warningState && <div>{props.warningText}</div> }
         </div>
     )

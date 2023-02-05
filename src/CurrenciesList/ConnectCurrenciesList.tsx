@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {ActionType, StoreType} from "../Types";
-import {CurrenciesList} from "./CurrenciesList";
+import {ActionType, CurrenciesItemType, StoreType} from "../Types";
+import {CurrenciesListC} from "./CurrenciesList";
 
 
 const changeAnotherValueAC = (name: string, numValue: number, fullName: string) => {
@@ -14,7 +14,7 @@ const changeAnotherValueAC = (name: string, numValue: number, fullName: string) 
         }
     }
 }
-const setCurrenciesAC = (receivedCurr:any) => {
+const setCurrenciesAC = (receivedCurr:CurrenciesItemType[]) => {
     return {
         type: 'SET-CURRENCIES',
         payload: {
@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch: (action: ActionType) => void) => {
 }
 
 
-export const ConnectCurrenciesList = connect(mapStateToProps, mapDispatchToProps)(CurrenciesList)
+export const ConnectCurrenciesList = connect(mapStateToProps, mapDispatchToProps)(CurrenciesListC)

@@ -37,7 +37,7 @@ export  type StoreType = {
 
 export type ActionType = {
     type: string
-    payload?: any
+    payload?:any
 }
 
 export type CurrenciesListPropsType = {
@@ -45,7 +45,7 @@ export type CurrenciesListPropsType = {
     onCLickHandler: (name:string, numValue:number, fullName:string)=>void
     favorites: string[]
     title: string
-    setCurrencies: (receivedCurr:any)=> void
+    setCurrencies: (receivedCurr:CurrenciesItemType[])=> void
 }
 export type CurrenciesItemType = {
     "r030": number
@@ -54,3 +54,5 @@ export type CurrenciesItemType = {
     "cc": string
     "exchangedate": string
 }
+
+

@@ -6,7 +6,7 @@ import {ActionType, InitialStateType} from "../../Types";
 
 const initialState: InitialStateType = {
     UAHCurrentValue: {
-        value: 0,
+        value: 1,
         title: 'UAH',
         fullName:''
     },
@@ -76,6 +76,8 @@ export const CurrenciesReducer:CurrenciesReducerType = (state = initialState, ac
                     errorValue:{...state.warnings.errorValue,value:false}
                 }
             }
+        case 'INPUT-ONCLICK':
+      return   {...state, UAHCurrentValue: {...state.UAHCurrentValue,} }
         default: return state //при default: throw new Error('invalid state') сразу падает ошибка
 
     }
